@@ -5,7 +5,9 @@ import Footer from './Footer';
 const Base = ({ children }) => (
     <>
         <Header />
-        {children}
+        <main className='min-h-[calc(100vh_-_12rem)]'>
+            {children}
+        </main>
         <Footer />
     </>
 );
