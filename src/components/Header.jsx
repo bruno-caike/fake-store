@@ -5,7 +5,7 @@ import { routes } from "../utils/variables";
 
 const Header = () => {
     return (
-        <header className="bg-orange-400">
+        <header className="bg-slate-800">
             <div className="container flex items-center justify-between h-24">
                 <Link to={routes.home} className="text-white font-bold text-4xl">Fake Store</Link>
                 <button className="text-white text-2xl transition-all hover:text-slate-400"><FontAwesomeIcon icon={faCartShopping} /></button>
