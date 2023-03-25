@@ -53,8 +53,8 @@ const Product = () => {
                                     <li className='mx-2'>/</li>
                                     <li><Link to={routes.productShow(product.id, toSlug(product.title))} className="text-stone-600 transition-all hover:text-slate-600">{product.title.length > 40 ? `${product.title.substr(0, 35)}[...]` : product.title}</Link></li>
                                 </ul>
-                                <div className='grid grid-cols-1 xl:grid-cols-[400px_1fr] gap-10'>  
-                                    <div className="w-full p-4 border rounded flex items-center justify-center">
+                                <div className='grid grid-cols-1 md:grid-cols-[400px_1fr] gap-10'>  
+                                    <div className="p-4 border rounded flex items-center justify-center w-full sm:w-[400px] md:w-full">
                                         <Splide 
                                             options={{
                                                 width : '100%',
@@ -81,7 +81,7 @@ const Product = () => {
                                     <div className='text-stone-600'>
                                         <header>
                                             <span className="bg-slate-600 text-white py-0.5 px-2 rounded-sm text-sm">{product.category}</span>
-                                            <h1 className="my-4 font-bold text-5xl">{product.title}</h1>
+                                            <h1 className="my-4 font-bold text-2xl sm:text-3xl lg:text-5xl">{product.title}</h1>
                                             <p>{product.description}</p>
                                         </header>
                                         <ul className='mt-4'>
@@ -97,7 +97,7 @@ const Product = () => {
                                             </li>
                                         </ul>
                                         <button
-                                            className="flex items-center justify-between w-80 py-2 px-3 border border-slate-600 bg-slate-600 text-white rounded font-bold transition-all hover:text-slate-600 hover:bg-white mt-5"
+                                            className="flex items-center justify-between w-full sm:w-80 py-2 px-3 border border-slate-600 bg-slate-600 text-white rounded font-bold transition-all hover:text-slate-600 hover:bg-white mt-5"
                                         >
                                             <span>Adicionar no carrinho</span>
                                             <FontAwesomeIcon icon={faArrowRight} />
