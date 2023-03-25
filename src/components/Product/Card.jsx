@@ -21,7 +21,6 @@ const Card = () => {
                     <h2 className="text-lg mb-1 font-bold">{product.title.length > 40 ? `${product.title.substr(0, 35)}[...]` : product.title}</h2>
                     <p className="grid">
                         <strong className="text-green-600 text-xl">{product.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</strong>
-                        <span className="text-sm">Avaliação: {product.rating.rate}</span>
                     </p>
                 </div>
                 <ul className="mt-3">

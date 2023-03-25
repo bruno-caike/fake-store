@@ -1,4 +1,4 @@
-import '../assets/css/app.css';
+import '../assets/sass/app.scss';
 import Header from './Header';
 import Footer from './Footer';
 
