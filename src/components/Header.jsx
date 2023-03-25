@@ -7,7 +7,7 @@ const Header = () => {
     return (
         <header className="bg-slate-800">
             <div className="container flex items-center justify-between h-24">
-                <Link to={routes.home} className="text-white font-bold text-4xl">Fake Store</Link>
+                <Link to={routes.home} className="text-white font-bold text-2xl md:text-3xl lg:text-4xl">Fake Store</Link>
                 <button className="text-white text-2xl transition-all hover:text-slate-400"><FontAwesomeIcon icon={faCartShopping} /></button>
             </div>
         </header>
