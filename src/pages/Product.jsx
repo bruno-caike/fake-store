@@ -1,12 +1,12 @@
 import Base from '../components/Base';
 
-const Home = () => {
 
+const Product = () => {
     return (
         <Base>
-            home
+
         </Base>
     );
 }
 
-export default Home;
+export default Product;
