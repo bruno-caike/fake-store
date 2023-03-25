@@ -16,6 +16,8 @@ const Products = () => {
     const [nowCategory, setNowCategory] = useState('all');
     const [categories, setCategories] = useState([]);
 
+    const handleChangeCategory = ({ currentTarget }) => setNowCategory(currentTarget.value);
+
     useEffect(() => {
         const feths = async () => {
             setLoadingProd(true);
@@ -28,6 +30,7 @@ const Products = () => {
         }
         feths();
     }, [nowCategory]);
+
     return (
         <Base>
             <section className="mt-10">
@@ -36,7 +39,7 @@ const Products = () => {
                         <>
                             <div className="bg-slate-50 px-4 pb-6 pt-3 rounded">
                                 <label htmlFor="categories" className='font-bold mb-2 block text-stone-600 text-xl'>Categorias</label>
-                                <select name="categories" id="categories" className='w-full border h-10 text-stone-600' defaultValue="all">
+                                <select name="categories" id="categories" className='w-full border h-10 text-stone-600' onChange={handleChangeCategory} value={nowCategory}>
                                     <option value="all">Todas</option>
                                     {categories.length > 0 &&
                                         categories.map(category => (
@@ -45,7 +48,7 @@ const Products = () => {
                                 </select>
                             </div>
                             <nav className='mt-6 mb-16'>
-                                <h1 className='font-bold text-4xl text-stone-600 mb-6'>Produtos {nowCategory !== 'all' ? ` - Categoria (${nowCategory})` : ''}</h1>
+                                <h1 className='font-bold text-4xl text-stone-600 mb-6'>Produtos {nowCategory !== 'all' ? `(${nowCategory})` : ''}</h1>
                                 {loadingProd ? <Loading /> : 
                                     <ul className='grid gap-4 grid-cols-4'>
                                         {products.map(product => (

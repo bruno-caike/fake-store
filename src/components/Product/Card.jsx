@@ -14,7 +14,7 @@ const Card = () => {
         <article className="border rounded p-2 grid h-full text-stone-600">
             <div className="w-full h-48 p-4 border rounded flex items-center justify-center relative">
                 <img src={product.image} alt={product.title} className="max-w-full max-h-full bg-cover bg-no-repeat bg-center" />
-                <span class="bg-slate-600 text-white py-0.5 px-2 absolute rounded-sm left-2 bottom-[-.625rem] text-xs">{product.category}</span>
+                <span className="bg-slate-600 text-white py-0.5 px-2 absolute rounded-sm left-2 bottom-[-.625rem] text-xs">{product.category}</span>
             </div>
             <header className="pt-3 px-2 h-full flex justify-between flex-col">
                 <div>
