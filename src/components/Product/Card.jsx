@@ -5,11 +5,26 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 
 import ProductContext from '../../context/ProductContext'
-import { toSlug } from "../../utils/functions";
+import { addLocalStorage, addMessage, toSlug } from "../../utils/functions";
 import { routes } from "../../utils/variables";
 
 const Card = () => {
-    const { product } = useContext(ProductContext);
+    const { product, setShowModal } = useContext(ProductContext);
+
+    const handleClickBtnAddCart = () => {
+        const newProduct = {
+            id: product.id,
+            title: product.title,
+            image: product.image,
+            price: product.price,
+            count: 1,
+            count_total: product.rating.count
+        }
+        const addCart = addLocalStorage(newProduct);
+        addMessage((addCart ? 'Produto adicionado no carrinho!' : 'Produto com quantidade insuficiente!'), addCart);
+        setShowModal(true);
+    }
+
     return (
         <article className="border rounded p-2 grid h-full text-stone-600">
             <div className="w-full h-48 p-4 border rounded flex items-center justify-center relative">
@@ -36,6 +51,7 @@ const Card = () => {
                     <li>
                         <button
                             className="flex items-center justify-between w-full py-2 px-3 border border-slate-600 bg-slate-600 text-white rounded font-bold transition-all hover:text-slate-600 hover:bg-white"
+                            onClick={handleClickBtnAddCart}
                         >
                             <span>Adicionar no carrinho</span>
                             <FontAwesomeIcon icon={faArrowRight} />
