@@ -24,3 +24,6 @@ Rodar o projeto em modo de desenvolvimento.
 
 #### `yarn build`
 Cria o aplicativo para produção na pasta 'dist'.
+
+### URL do projeto
+https://fakestorebrunocaike.netlify.app/
