@@ -5,7 +5,7 @@ import Base from '../components/Base';
 import Loading from '../components/Loading';
 import NotFound from './NotFound';
 
-import { fetch_get, generateRandom, toSlug } from '../utils/functions';
+import { addLocalStorage, fetch_get, generateRandom, toSlug } from '../utils/functions';
 import { routes, url } from '../utils/variables';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -15,6 +15,7 @@ import { Splide, SplideSlide } from '@splidejs/react-splide';
 
 const Product = () => {
     const [product, setProduct] = useState(null);
+    const [count, setCount] = useState(1);
     const [loading, setLoading] = useState(true);
     const [exist, setExist] = useState(true);
     const { id } = useParams();
@@ -40,6 +41,21 @@ const Product = () => {
         }
         return arrayCount;
     }
+
+    const handleClickBtnAddCart = () => {
+        const newProduct = {
+            id: product.id,
+            title: product.title,
+            image: product.image,
+            price: product.price,
+            count: count,
+            count_total: product.rating.count
+        }
+        const addCart = addLocalStorage(newProduct);
+        console.log(addCart)
+    }
+
+    const handleChangeSelectQuantity = ({ currentTarget }) => setCount(currentTarget.value);
 
     return (
         <Base>
@@ -89,7 +105,7 @@ const Product = () => {
                                             <li className='mb-1'><p><strong>Avaliação:</strong> {product.rating.rate}</p></li>
                                             <li>
                                                 <p><strong>Quantidade:</strong></p>
-                                                <select name="categories" id="categories" className='border h-10 text-stone-600 w-20 rounded' defaultValue={1}>
+                                                <select name="quantity" id="quantity" className='border h-10 text-stone-600 w-20 rounded' onChange={handleChangeSelectQuantity} value={count}>
                                                     {fillSelect(product.rating.count).map(count => (
                                                         <option value={count} key={generateRandom()}>{count}</option>
                                                     ))}
@@ -98,6 +114,7 @@ const Product = () => {
                                         </ul>
                                         <button
                                             className="flex items-center justify-between w-full sm:w-80 py-2 px-3 border border-slate-600 bg-slate-600 text-white rounded font-bold transition-all hover:text-slate-600 hover:bg-white mt-5"
+                                            onClick={handleClickBtnAddCart}
                                         >
                                             <span>Adicionar no carrinho</span>
                                             <FontAwesomeIcon icon={faArrowRight} />
