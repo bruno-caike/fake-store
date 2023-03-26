@@ -24,19 +24,19 @@ const CardCart = () => {
     return (
         <Link to={routes.productShow(prod.id, toSlug(prod.title))}>
             <article className="flex">
-                <div className="w-20 h-20 p-1 border rounded flex items-center justify-center mr-5">
+                <div className="w-16 sm:w-20 h-16 sm:h-20 p-1 border rounded flex items-center justify-center mr-3 sm:mr-5">
                     <img src={prod.image} alt={prod.title} className="max-w-full max-h-full bg-cover bg-no-repeat bg-center" />
                 </div>
                 <header className="flex justify-between items-start w-full">
-                    <div className="w-full mt-3 pr-4">
-                        <h3>{prod.title}</h3>
-                        <p className="flex justify-between items-center">
+                    <div className="w-full mt-1 sm:mt-3 pr-4">
+                        <h3 className="text-sm sm:text-base">{prod.title}</h3>
+                        <p className="flex justify-between items-center text-sm sm:text-base">
                             <span>Qtde: {prod.count}</span>
                             <strong className="text-green-600">{(prod.price * prod.count).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</strong>
                         </p>
                     </div>  
                     <button 
-                        className="p-1 mt-5 bg-transparent border-0 text-red-600 opacity-70 hover:opacity-95 transition-all text-2xl outline-none focus:outline-none"
+                        className="p-1 mt-1 sm:mt-5 bg-transparent border-0 text-red-600 opacity-70 hover:opacity-95 transition-all text-2xl outline-none focus:outline-none"
                         onClick={handleClickBtnDelProd}
                     >
                         <FontAwesomeIcon icon={faXmark} />

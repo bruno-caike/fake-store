@@ -44,10 +44,10 @@ const ModalCart = () => {
                     className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
                     onClick={closeModal}
                 >
-                    <div className="relative w-auto max-h-screen mx-auto max-w-3xl min-w-[600px]">
+                    <div className="relative w-10/12 sm:w-auto max-h-screen mx-auto max-w-3xl sm:min-w-[600px]">
                         <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
-                            <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
-                                <h3 className="text-3xl font-semibold">
+                            <div className="flex items-center justify-between p-5 border-b border-solid border-slate-200 rounded-t">
+                                <h3 className="text-base sm:text-2xl font-semibold">
                                     Carrinho de compras
                                 </h3>
                                 <button
@@ -72,7 +72,7 @@ const ModalCart = () => {
                                         })
                                     }
                                 </ul>
-                                <p className="text-green-600 text-xl border-t border-b mt-6 py-4 font-bold text-center">
+                                <p className="text-green-600 text-base sm:text-xl border-t border-b mt-6 py-4 font-bold text-center">
                                     Total {value_total.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}
                                 </p>
                                 <button
