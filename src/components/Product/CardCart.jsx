@@ -56,7 +56,13 @@ const CardCart = () => {
                     </Link>
                     <p className="flex justify-between items-center text-sm sm:text-base">
                         {/* <span>Qtde: {prod.count}</span> */}
-                        <select name="quantity_cart" id="quantity_cart" className='border h-10 text-stone-600 w-20 rounded' onChange={handleChangeSelectQuantity} value={quantity}>
+                        <select 
+                            name="quantity_cart" 
+                            id="quantity_cart" 
+                            className='border h-8 sm:h-10 text-stone-600 w-14 sm:w-20 rounded' 
+                            onChange={handleChangeSelectQuantity} 
+                            value={quantity}
+                        >
                             {fillSelect(prod.count_total).map(count => (
                                 <option value={count} key={generateRandom()}>{count}</option>
                             ))}
