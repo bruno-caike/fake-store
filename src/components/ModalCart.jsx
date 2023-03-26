@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from "react";
 import CartContext from "../context/CartContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faXmark } from "@fortawesome/free-solid-svg-icons"
+import { faXmark, faArrowRight } from "@fortawesome/free-solid-svg-icons"
 import Loading from "./Loading";
-import { generateRandom, toSlug } from "../utils/functions";
+import { addMessage, generateRandom, toSlug } from "../utils/functions";
 import ProductContext from "../context/ProductContext";
 import CardCart from "./Product/CardCart";
 
@@ -17,6 +17,12 @@ const ModalCart = () => {
         if (target === currentTarget) {
             setShowModal(false);
         }
+    }
+
+    const handleClickBtnFinalOrder = () => {
+        localStorage.removeItem("cart");
+        setCart([]);
+        addMessage("Pedido finalizado com sucesso", true);
     }
 
     useEffect(() => {
@@ -69,6 +75,13 @@ const ModalCart = () => {
                                 <p className="text-green-600 text-xl border-t border-b mt-6 py-4 font-bold text-center">
                                     Total {value_total.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}
                                 </p>
+                                <button
+                                    className="flex items-center justify-between mt-6 w-full py-2 px-3 border border-slate-600 bg-slate-600 text-white rounded font-bold transition-all hover:text-slate-600 hover:bg-white"
+                                    onClick={handleClickBtnFinalOrder}
+                                >
+                                    <span>Finalizar pedido</span>
+                                    <FontAwesomeIcon icon={faArrowRight} />
+                                </button>
                             </div>
                         </div>
                     </div>
