@@ -20,9 +20,13 @@ const ModalCart = () => {
     }
 
     const handleClickBtnFinalOrder = () => {
-        localStorage.removeItem("cart");
-        setCart([]);
-        addMessage("Pedido finalizado com sucesso", true);
+        if (cart.length > 0) {
+            localStorage.removeItem("cart");
+            setCart([]);
+            addMessage("Pedido finalizado com sucesso", true);
+        } else {
+            addMessage("Carrinho vazio!", false);
+        }
     }
 
     useEffect(() => {
