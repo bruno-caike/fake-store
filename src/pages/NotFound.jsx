@@ -5,6 +5,7 @@ import Footer from '../components/Footer';
 import { routes } from '../utils/variables';
 
 import CartContext from '../context/CartContext';
+import { useState } from 'react';
 
 const NotFound = () => {
     const [showModal, setShowModal] = useState(false);
